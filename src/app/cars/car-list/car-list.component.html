@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-xs-12">
+        <button class="btn btn-success" (click)="onNewCar()">New Car</button>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-xs-12">
+        <app-car-item 
+            *ngFor="let carEl of cars; let i = index" 
+            [car]="carEl"
+            [index]="i"></app-car-item>
+    </div>
+</div>

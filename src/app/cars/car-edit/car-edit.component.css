@@ -1,0 +1,34 @@
+input.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched {
+    border: 1px solid red;
+}
+
+.copy-button {
+    height: 3rem; 
+    width: 3rem; 
+    margin: 0.5rem 1rem; 
+    padding: 0.2rem; 
+    cursor: pointer;
+    border: 3px solid rgb(4, 145, 253); 
+    border-radius: 5px;
+}
+
+.card {
+    background: crimson;
+    border-radius: 2rem; 
+    padding: 3rem; 
+    margin-bottom: 2rem; 
+    box-shadow: 0 -150px 70px -120px teal inset,
+              0 -220px 70px -120px yellowgreen inset,
+              0 -280px 70px -120px gold inset;
+    animation: background 4s infinite alternate;
+}
+
+@keyframes background {
+    50% {
+      background: darkviolet;
+      box-shadow: 0 -140px 70px -120px mediumorchid inset,
+                  0 -210px 70px -120px teal inset,
+                  0 -280px 70px -120px plum inset;
+    }
+}

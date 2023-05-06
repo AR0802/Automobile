@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-xs-10">
+        <app-shopping-edit></app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <a 
+                class="list-group-item" 
+                style="cursor: pointer;"
+                *ngFor="let detail of details; let i = index"
+                (click)="onEditItem(indexes[i])"
+            >
+                {{ detail.name }} ({{ detail.value }})
+            </a>
+        </ul>
+    </div>
+</div>

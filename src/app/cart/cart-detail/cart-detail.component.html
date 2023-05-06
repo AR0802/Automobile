@@ -1,0 +1,49 @@
+<div class="card">
+    <div class="row">
+        <div class="col-xs-12">
+            <img [src]="car.imagePath" alt="{{ car.name }}" class="img-responsive" style="max-height: 300px;">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ car.name }}, {{ car.price }}$</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button
+                    type="button"
+                    class="btn btn-primary dropdown-toggle">
+                    Manage Car <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a (click)="onDeleteCarFromCart()" style="cursor: pointer;">Remove Car From Cart</a></li>
+                </ul>
+            </div>
+            <br/><br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            {{ car.description }}
+        </div>
+    </div>
+    <div class="row" style="margin-top: 1rem">
+        <div class="col-xs-12">
+            <ul class="list-group">
+                <li 
+                    class="list-group-item"
+                    style="color: #000;"
+                    *ngFor="let detail of car.details">
+                    {{ detail.name }} - {{ detail.value }}
+                </li>
+            </ul>
+            <hr>
+            <h3>Contacts:</h3>
+            {{ car.phone }}
+            <br>
+            {{ car.email }}
+        </div>
+    </div>
+</div>

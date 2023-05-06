@@ -1,0 +1,134 @@
+<div class="card">
+    <div class="row">
+        <div class="col-xs-12">
+            <form [formGroup]="carForm" (ngSubmit)="onSubmit()">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <button 
+                            type="submit" 
+                            class="btn btn-success" 
+                            style="margin-right: 1rem" 
+                            [disabled]="carForm.invalid">Save</button>
+                        <button type="button" class="btn btn-danger" (click)="onCancel()">Cancel</button>
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1rem">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input 
+                                type="text" 
+                                id="name"
+                                formControlName="name"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="imagePath">Image URL</label>
+                            <img 
+                                class="copy-button"
+                                src="../../../assets/free-icon-copy-8591653.png" 
+                                alt="Copy"
+                                (click)="onCopyImageUrl(imagePath)">
+                            <input
+                                type="text"
+                                id="imagePath"
+                                formControlName="imagePath"
+                                class="form-control"
+                                #imagePath>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <img [src]="imagePath.value" class="img-responsive" style="max-height: 300px;">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 1.5rem">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea
+                                type="text" 
+                                id="description"
+                                formControlName="description"
+                                class="form-control"
+                                rows="6"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="price">Price($)</label>
+                            <input 
+                                type="number" 
+                                id="price"
+                                formControlName="price"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="phone">Owner Phone</label>
+                            <input 
+                                type="text" 
+                                id="phone"
+                                formControlName="phone"
+                                class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="email">Owner Email</label>
+                            <input
+                                type="email" 
+                                id="email"
+                                formControlName="email"
+                                class="form-control"
+                                email>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12" formArrayName="details">
+                        <div 
+                            class="row"
+                            *ngFor="let detailCtrl of getControls(); let i = index"
+                            [formGroupName]="i"
+                            style="margin-top: 10px;">
+                            <div class="col-xs-5">
+                                <input 
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="name">
+                            </div>
+                            <div class="col-xs-5">
+                                <input 
+                                    type="text"
+                                    class="form-control"
+                                    formControlName="value">
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-danger" (click)="onDeleteDetail(i)">X</button>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="row" style="margin-bottom: 20px;">
+                            <div class="col-xs-12">
+                                <button type="button" class="btn btn-success" (click)="onAddDetail()">Add Detail</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
